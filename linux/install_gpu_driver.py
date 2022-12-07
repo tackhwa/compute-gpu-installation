@@ -284,8 +284,8 @@ def install_dependencies_debian_ubuntu(system: System, version: str) -> bool:
     Installs kernel-related packages and pciutils for Debian and Ubuntu.
     """
     kernel_version = run("uname -r").stdout.decode().strip()
-    run("apt update")
-    run(f"apt install -y linux-headers-{kernel_version} "
+    run("sudo apt update")
+    run(f"sudo apt install -y linux-headers-{kernel_version} "
         "software-properties-common pciutils gcc make dkms")
     return False
 
